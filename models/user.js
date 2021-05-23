@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user.hasMany(models.stock)
     }
   };
   
@@ -66,3 +67,43 @@ module.exports = (sequelize, DataTypes) => {
   }
   return user; // add functions above 
 };
+
+// industry: {
+//   type: DataTypes.STRING,
+
+//   // validate: {
+//   // len: {
+//   //   args: [1,99],
+//   //   msg: 'industry must be between 1 and 99 characters',
+//   // }
+//   // }
+// },
+// ticker: {
+//   type: DataTypes.STRING,
+//   // validate: {
+//   //   isUppercase: true,
+//   //   notEmpty:true,
+//   //   len: {
+//   //   args: [1,7],
+//   //   msg: 'must be between 1 and 7 characters',
+//   // }
+//   // }
+// }, 
+// price: {
+//   type: DataTypes.INTEGER,
+//   // validate: {
+//   // len: {
+//   //   args: [1,99],
+//   //   msg: 'Price must be between 0 - 1 trillion ',
+//   // }
+//   // }
+// },
+// userId: {
+//   type: DataTypes.INTEGER,
+//   // validate: {
+//   // len: {
+//   //   args: [1,99],
+//   //   msg: 'User ID must be between 1 and 5 characters',
+//   // }
+//   // }
+// },

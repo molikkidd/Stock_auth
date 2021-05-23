@@ -50,6 +50,17 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { id, name, email });
 });
 
+// app.get('/index',isLoggedIn, (req, res) => {
+// const {industry, ticker, price} = req.body.user;
+//   console.log(industry, ticker, price);
+//   res.render('stocks/newStock');
+// });
+
+app.post('/', isLoggedIn, (req, res) => {
+  console.log(industry, ticker, price);
+  res.send('index');
+});
+
 app.use('/auth', require('./controllers/auth'));
 
 const PORT = process.env.PORT || 3000;
