@@ -20,7 +20,7 @@ router.get('/logout', (req, res)=> {
 
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
+  successRedirect: '/profile',
   failureRedirect: '/auth/login',
   successFlash: 'Hola Moto, Welcome Back',
   failureFlash: 'I cant give you any hints but its the username or the Password '

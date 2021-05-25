@@ -46,30 +46,14 @@ app.get('/', (req, res, next) => {
   res.render('index');
 });
 
-app.post('/profile', (req, res) => {
-  // const { email, name, password} = req.body; 
-    console.log(req.body);
-  res.render('profile');
+
+app.get('/profile', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('profile', { id, name, email });
 });
-
-// app.post('/profile', (req, res) =>{
-//   console.log(res.user);
-//   res.render('profile');
-// });
-
-// conncet to logout file if isLoggedIn. 
-app.get('auth/logout',isLoggedIn, (req, res) => {
-// const {industry, ticker, price} = req.user.get();
-  console.log(req.body);
-  res.render('auth/logout');
-});
-
-// app.post('/logout', isLoggedIn, (req, res) => {
-//   console.log(industry, ticker, price);
-//   res.send('index');
-// });
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/stocks', require('./controllers/stocks'));
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
